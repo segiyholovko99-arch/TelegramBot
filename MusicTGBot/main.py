@@ -21,6 +21,7 @@ from yt_dlp.utils import DownloadError
 TOKEN = "8094506328:AAEMCScDztRsiKbI6aJF6-KsbjRCzBGI0gE"  # 🔒 Заміни токен перед деплоєм
 ds = Dispatcher()
 
+COOKIES_PATH = os.path.join(os.path.dirname(__file__), "cookies.txt")
 
 class FilenameCollectorPP(yt_dlp.postprocessor.common.PostProcessor):
     def __init__(self):
@@ -82,7 +83,7 @@ async def search_cmd(message: types.Message):
         'fragment_retries': 3,
         'concurrent_fragment_downloads': 1,
         'ignore_no_formats_error': True,
-        'cookiefile': 'cookies.txt',  # 🔹 додаємо підтримку cookies
+        'cookiefile': COOKIES_PATH,  # 🔹 додаємо підтримку cookies
         'http_headers': {
              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0 Safari/537.36',
              'Accept-Language': 'en-US,en;q=0.9'
