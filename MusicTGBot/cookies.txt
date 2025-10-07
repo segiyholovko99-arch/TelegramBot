@@ -1,3 +1,7 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
 accounts.google.com	FALSE	/	TRUE	1762456455	OTZ	8292674_48_52_123900_48_436380
 .google.com	TRUE	/	FALSE	1794424494	SID	g.a0002AgKfYPcHP0mqyimCCgNv60gIBYbgmq3g8uU3Q0gn43Y15azZguWlzrergoRZ0PPtNNaKgACgYKAbISARUSFQHGX2MiDOtmM0tjVubf2ZKqv7wkYxoVAUF8yKpFyo0lJr2E71YZMKV2V8d80076
 .google.com	TRUE	/	TRUE	1794424494	__Secure-1PSID	g.a0002AgKfYPcHP0mqyimCCgNv60gIBYbgmq3g8uU3Q0gn43Y15azNgaW0_Z8lReeODheW7T6WwACgYKASsSARUSFQHGX2MiROEhOdLeLpfX7fafYqD0jRoVAUF8yKorpHcIoTHKnNfzIYj0EpEs0076
