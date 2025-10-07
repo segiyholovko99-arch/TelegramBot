@@ -22,12 +22,18 @@ TOKEN = "8094506328:AAEMCScDztRsiKbI6aJF6-KsbjRCzBGI0gE"  # 🔒 Заміни т
 ds = Dispatcher()
 
 
-COOKIES_PATH = os.environ.get("COOKIES_PATH")
+COOKIES_PATH = os.path.join(os.path.dirname(__file__), "cookies.txt")
 
-if not COOKIES_PATH or not os.path.exists(COOKIES_PATH):
-    print("❌ cookies.txt не знайдено. Перевір змінну COOKIES_PATH")
+if not os.path.exists(COOKIES_PATH):
+    cookies_content = os.environ.get("COOKIES_CONTENT", "")
+    if cookies_content:
+        with open(COOKIES_PATH, "w", encoding="utf-8") as f:
+            f.write(cookies_content)
+        print(f"✅ cookies.txt створено у: {COOKIES_PATH}")
+    else:
+        print("❌ Змінна COOKIES_CONTENT порожня або не задана")
 else:
-    print("✅ cookies.txt знайдено за шляхом:", COOKIES_PATH)
+    print(f"✅ cookies.txt вже існує у: {COOKIES_PATH}")
 
 class FilenameCollectorPP(yt_dlp.postprocessor.common.PostProcessor):
     def __init__(self):
