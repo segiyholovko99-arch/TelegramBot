@@ -78,7 +78,7 @@ async def search_cmd(message: types.Message):
         'fragment_retries': 3,
         'concurrent_fragment_downloads': 1,
         'ignore_no_formats_error': True,
-        'cookies': 'cookies.txt',  # 🔹 додаємо підтримку cookies
+        'cookiefile': 'cookies.txt',  # 🔹 додаємо підтримку cookies
         'http_headers': {
              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0 Safari/537.36',
              'Accept-Language': 'en-US,en;q=0.9'
