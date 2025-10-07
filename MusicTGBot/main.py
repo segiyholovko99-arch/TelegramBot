@@ -37,6 +37,10 @@ async def command_start_handler(message: types.Message):
     await message.answer(f"Привіт, {message.from_user.first_name}! Надішли /search 'назва пісні', щоб завантажити музику 🎵")
     print("єєєєєєєє")
 
+if not os.path.exists("cookies.txt"):
+    print("❌ cookies.txt not found in working directory:", os.getcwd())
+else:
+    print("✅ cookies.txt found! Size:", os.path.getsize("cookies.txt"))
 
 @ds.message(Command("search"))
 async def search_cmd(message: types.Message):
