@@ -21,7 +21,13 @@ from yt_dlp.utils import DownloadError
 TOKEN = "8094506328:AAEMCScDztRsiKbI6aJF6-KsbjRCzBGI0gE"  # 🔒 Заміни токен перед деплоєм
 ds = Dispatcher()
 
-COOKIES_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "cookies.txt")
+
+COOKIES_PATH = os.environ.get("COOKIES_PATH")
+
+if not COOKIES_PATH or not os.path.exists(COOKIES_PATH):
+    print("❌ cookies.txt не знайдено. Перевір змінну COOKIES_PATH")
+else:
+    print("✅ cookies.txt знайдено за шляхом:", COOKIES_PATH)
 
 class FilenameCollectorPP(yt_dlp.postprocessor.common.PostProcessor):
     def __init__(self):
@@ -37,11 +43,6 @@ class FilenameCollectorPP(yt_dlp.postprocessor.common.PostProcessor):
 async def command_start_handler(message: types.Message):
     await message.answer(f"Привіт, {message.from_user.first_name}! Надішли /search 'назва пісні', щоб завантажити музику 🎵")
     print("єєєєєєєє")
-
-if not os.path.exists("cookies.txt"):
-    print("❌ cookies.txt not found in working directory:", os.getcwd())
-else:
-    print("✅ cookies.txt found! Size:", os.path.getsize("cookies.txt"))
 
 @ds.message(Command("search"))
 async def search_cmd(message: types.Message):
