@@ -21,7 +21,7 @@ from yt_dlp.utils import DownloadError
 TOKEN = "8094506328:AAEMCScDztRsiKbI6aJF6-KsbjRCzBGI0gE"  # 🔒 Заміни токен перед деплоєм
 ds = Dispatcher()
 
-COOKIES_PATH = os.path.join(os.path.dirname(__file__), "cookies.txt")
+COOKIES_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), "cookies.txt")
 
 class FilenameCollectorPP(yt_dlp.postprocessor.common.PostProcessor):
     def __init__(self):
